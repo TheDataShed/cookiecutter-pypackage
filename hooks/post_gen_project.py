@@ -25,21 +25,7 @@ if __name__ == "__main__":
 
     # Run the rest of the setup here
     subprocess.call(["git", "init"])
-    subprocess.call(["git", "config", "--user.email", "{{ cookiecutter.email }}"])
-    subprocess.call(["git", "config", "--user.name", "{{ cookiecutter.name }}"])
-    subprocess.call(["python", "-m", "venv", "venv"])
+    subprocess.call(["git", "branch", "-m", "main"])
 
-    if platform in ("linux", "linux2", "darwin"):
-        # Unix
-        subprocess.call(["./venv/Scripts/activate.bat"])
-    elif platform == "win32":
-        subprocess.call(["source", "venv/bin/activate"])
-
-    subprocess.call(["pip", "install", "-r", "requirements_dev.txt", "--upgrade"])
-    subprocess.call(["pre-commit install"])
-    print("""
-Finished initialising git
-Finished creating a virtualenv in venv/
-Finished installing dev dependencies
-Finished installing pre-commit hooks
-""")
+    print("Finished with git initialisation and virtualenv creation.")
+    print("Please run make local-config to complete the installation")
