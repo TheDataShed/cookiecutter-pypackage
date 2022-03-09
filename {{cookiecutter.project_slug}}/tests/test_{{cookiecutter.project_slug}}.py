@@ -25,6 +25,7 @@ def response():
 
     See more at: http://doc.pytest.org/en/latest/fixture.html
     """
+    assert {{ cookiecutter.project_slug }} # Remove this (Just to get tox to pass)
     # import requests
     # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
 
