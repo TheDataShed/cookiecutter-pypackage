@@ -4,7 +4,7 @@
 
 from setuptools import setup, find_packages
 
-with open('README.rst') as readme_file:
+with open('README.md') as readme_file:
     readme = readme_file.read()
 
 with open('HISTORY.rst') as history_file:
@@ -23,7 +23,7 @@ test_requirements = [{%- if cookiecutter.use_pytest == 'y' %}'pytest>=3',{%- end
 } %}
 
 setup(
-    author="{{ cookiecutter.full_name.replace('\"', '\\\"') }}",
+    author="{{ cookiecutter.full_name.replace('"', '\\"') }}",
     author_email='{{ cookiecutter.email }}',
     python_requires='>=3.7',
     classifiers=[

@@ -28,14 +28,6 @@ help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
 
-VENV_DIR=venv
-PYTHON_VENV=${VENV_DIR}/bin/python
-local-setup:
-	python -m venv venv
-	echo "$(PYTHON_VENV)"
-	$(PYTHON_VENV) -m pip install -r requirements_dev.txt --upgrade
-	pre-commit install
-
 clean: clean-build clean-pyc clean-test ## remove all build, test, coverage and Python artifacts
 
 clean-build: ## remove build artifacts
