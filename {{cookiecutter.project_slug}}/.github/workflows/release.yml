@@ -47,7 +47,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
+          python -m pip install --upgrade pip wheel
           pip install tox-gh-actions
 
       - name: pre-publish documentation
