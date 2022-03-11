@@ -1,16 +1,26 @@
+black
 bump2version
 coverage
 flake8
+flake8-docstrings
+isort
+mkdocs
+mkdocs-autorefs
+mkdocs-include-markdown-plugin
+mkdocs-material
+mkdocs-material-extensions
+mkdocstrings-python-legacy
+mkdocstrings
 pip
 pre-commit
+pytest
+pytest-cov
 Sphinx
+toml
 tox
 twine
+virtualenv
 watchdog
 wheel
 {% if cookiecutter.command_line_interface|lower == 'click' -%}
 Click{% endif %}
-{% if cookiecutter.use_pytest == 'y' -%}
-pytest{% endif %}
-{% if cookiecutter.use_black == 'y' -%}
-black{% endif %}

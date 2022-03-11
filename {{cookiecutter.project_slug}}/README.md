@@ -1,37 +1,55 @@
-{% set is_open_source = cookiecutter.open_source_license != 'Not
-open source' -%} {% for _ in cookiecutter.project_name %}={% endfor
-%} {{ cookiecutter.project_name }} {% for _ in
-cookiecutter.project_name %}={% endfor %}
+{% set is_open_source = cookiecutter.open_source_license != 'Not open source' -%}
 
-[![Made by The Data Shed](.github/ds-badge.svg)](https://thedatashed.co.uk)
+# {{ cookiecutter.project_name }}
+
+[![Made by The Data Shed](docs/ds-badge.svg)](https://thedatashed.co.uk)
 
 [![Security Status](https://img.shields.io/badge/security-bandit-yellow.svg)](https://github.com/PyCQA/bandit)
 
 {% if is_open_source %}
 
-[![Pypi](https://img.shields.io/pypi/v/{{ cookiecutter.project_slug }}.svg)(https://pypi.python.org/pypi/{{ cookiecutter.project_slug }})]
+<p align="center">
+<a href="https://pypi.python.org/pypi/{{ cookiecutter.project_slug }}">
+    <img src="https://img.shields.io/pypi/v/{{ cookiecutter.project_slug }}.svg"
+        alt = "Release Status">
+</a>
 
-[![Travis](https://img.shields.io/travis/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}.svg)(https://travis-ci.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}]
+<a href="https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions">
+    <img src="https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions/workflows/main.yml/badge.svg?branch=release" alt="CI Status">
+</a>
 
-[![Documentation Status](https://readthedocs.org/projects/{{ cookiecutter.project_slug | replace("*", "-") }}/badge/?version=latest)
-(https://{{ cookiecutter.project_slug | replace("_", "-") }}.readthedocs.io/en/latest/?version=latest)]
-
-{%- endif %}
-
+<a href="https://{{ cookiecutter.project_slug | replace("_", "-") }}.readthedocs.io/en/latest/?badge=latest">
+<img src="https://readthedocs.org/projects/{{ cookiecutter.project_slug | replace("*", "-") }}/badge/?version=latest" alt="Documentation Status">
+</a>
 {% if cookiecutter.add_pyup_badge == 'y' %}
+<a href="https://pyup.io/repos/github/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/">
+<img src="https://pyup.io/repos/github/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/shield.svg" alt="Updates">
+</a>
+{% endif %}
 
-[![Updates](https://pyup.io/repos/github/>{{ cookiecutter.github_username }}/{{
-cookiecutter.project_slug }}/shield.svg)(https://pyup.io/repos/github/{{ cookiecutter.github_username }}/{{
-cookiecutter.project_slug }})
+</p>
+{% else %}
+{% if cookiecutter.add_pyup_badge == 'y' %}
+<p>
+<a href="https://pyup.io/repos/github/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/">
+<img src="https://pyup.io/repos/github/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/shield.svg" alt="Updates">
+</a>
+</p>
+{% endif %}
 {% endif %}
 
 {{ cookiecutter.project_short_description }}
 
-{% if is_open_source %} _ Free software: {{
-cookiecutter.open_source_license }} _ Documentation: <https://>{{
-cookiecutter.project_slug | replace("_", "-") }}.readthedocs.io.
-{% endif %}
+{% if is_open_source %}
 
-# Features
+-   Free software: {{ cookiecutter.open_source_license }}
+-   Documentation: <https://{{ cookiecutter.project_slug | replace("_", "-") }}.readthedocs.io>
+    {% endif %}
+
+## Features
 
 -   TODO
+
+## Credits
+
+This package was created with [Cookiecutter](https://github.com/audreyr/cookiecutter) and the [zillionare/cookiecutter-pypackage](https://github.com/zillionare/cookiecutter-pypackage) project template.

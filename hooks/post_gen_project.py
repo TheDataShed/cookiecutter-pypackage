@@ -32,15 +32,15 @@ def remove_file(filepath):
 
 
 def install_pre_commit_hooks():
-    execute(sys.executable, "-m", "pip", "install", "pre-commit==2.12.0")
+    execute(sys.executable, "-m", "pip", "install", "pre-commit")
     execute("pre-commit", "install")
 
 
 if __name__ == "__main__":
 
-    if "{{ cookiecutter.create_author_file }}" != "y":
-        remove_file("AUTHORS.rst")
-        remove_file("docs/authors.rst")
+    if '{{ cookiecutter.create_author_file }}' != 'y':
+        remove_file('AUTHORS.md')
+        remove_file('docs/authors.md')
 
     if "no" in "{{ cookiecutter.command_line_interface|lower }}":
         cli_file = os.path.join("{{ cookiecutter.project_slug }}", "cli.py")
@@ -72,12 +72,16 @@ if __name__ == "__main__":
             "--upgrade",
         ]
     )
-    subprocess.call([f"{PYTHON_VENV}", "-m", "pre_commit", "install"])
+    install_pre_commit_hooks()
+    # subprocess.call([f"{PYTHON_VENV}", "-m", "pre_commit", "install"])
     subprocess.call(["git", "add", "."])
-    subprocess.call([f"{PYTHON_VENV}", "-m", "pre_commit"])
+    # subprocess.call([f"{PYTHON_VENV}", "-m", "pre_commit"])
+    subprocess.call(["pre-commit"])
     subprocess.call(["git", "add", "."])
-    subprocess.call([f"{PYTHON_VENV}", "-m", "pre_commit"])
-    print("""
+    # subprocess.call([f"{PYTHON_VENV}", "-m", "pre_commit"])
+    subprocess.call(["pre-commit"])
+    print(
+        """
 
 ███████╗███████╗████████╗██╗   ██╗██████╗
 ██╔════╝██╔════╝╚══██╔══╝██║   ██║██╔══██╗
@@ -133,4 +137,5 @@ if __name__ == "__main__":
                  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▄░▀▒▒▒▒▀░▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
                   ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
                    ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░
-""")
+"""
+    )

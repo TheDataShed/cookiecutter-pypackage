@@ -11,7 +11,9 @@
   "use_black": "y",
   "use_pypi_deployment_with_travis": "n",
   "add_pyup_badge": "n",
+  "docstrings_style": ["google", "numpy", "rst"],
   "command_line_interface": ["Click", "Argparse", "No command-line interface"],
   "create_author_file": "y",
-  "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"]
+  "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"],
+  "_copy_without_render": ["docs/history.md", "docs/contributing.md", "docs/authors.md", "docs/index.md", ".github/workflows/*.yml"]
 }
