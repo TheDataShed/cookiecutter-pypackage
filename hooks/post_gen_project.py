@@ -34,6 +34,8 @@ def remove_file(filepath):
 def install_pre_commit_hooks():
     execute(sys.executable, "-m", "pip", "install", "pre-commit")
     execute("pre-commit", "install")
+    execute("pre-commit",  "install", "--hook-type", "commit-msg")
+
 
 
 if __name__ == "__main__":

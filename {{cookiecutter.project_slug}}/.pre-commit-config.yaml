@@ -6,13 +6,17 @@ repos:
     - repo: https://github.com/Lucas-C/pre-commit-hooks
       rev: v1.1.9
       hooks:
-      -   id: forbid-tabs
-      -   id: remove-tabs
+          - id: forbid-tabs
+            exclude: "setup.cfg"
+          - id: remove-tabs
+            exclude: "setup.cfg"
     - repo: https://github.com/pre-commit/pre-commit-hooks
       rev: v3.2.0
       hooks:
           - id: trailing-whitespace
+            exclude: "setup.cfg"
           - id: end-of-file-fixer
+            exclude: "setup.cfg"
           - id: check-yaml
             exclude: mkdocs.yml
           - id: check-json
@@ -59,4 +63,4 @@ repos:
       hooks:
           - id: bandit
             args:
-              - -c=bandit.yaml
+                - -c=bandit.yaml
