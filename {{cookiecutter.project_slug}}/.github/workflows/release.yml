@@ -58,13 +58,12 @@ jobs:
       - name: publish documentation
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site
 
       - name: Build wheels and source tarball
         run: >-
-          python setup.py sdist
-          python setup.py bdist_wheel
+          python setup.py sdist bdist_wheel bdist_egg
 
       - name: show temporary files
         run: >-
