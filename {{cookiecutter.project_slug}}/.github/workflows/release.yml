@@ -52,7 +52,7 @@ jobs:
 
       - name: pre-publish documentation
         run: |
-          pip install -r requirements_dev.txt
+          pip install ".[docs]"
           mkdocs build
 
       - name: publish documentation

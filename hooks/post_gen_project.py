@@ -67,8 +67,8 @@ if __name__ == "__main__":
             "-m",
             "pip",
             "install",
-            "-r",
-            "requirements_dev.txt",
+            "-e",
+            '.[dev,docs,test]',
             "--upgrade",
         ]
     )

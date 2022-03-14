@@ -17,7 +17,8 @@ theme:
   language: en
   #logo: assets/logo.png
   palette:
-    primary: light blue
+    primary: white
+    accent: deep purple
   features:
     - navigation.indexes
     - navigation.tabs
