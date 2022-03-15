@@ -23,14 +23,18 @@ Cookiecutter_ template for a Python package.
 Features
 --------
 
-* Testing setup with ``unittest`` and ``python setup.py test`` or ``pytest``
+* Testing: `pytest`
 * Travis-CI_: Ready for Travis Continuous Integration testing
 * Tox_ testing: Setup to easily test for Python  3.7, 3.8, 3.9
 * Mkdocs docs: Documentation ready for generation with, for example, `Read the Docs`_
-* Pre-commit hooks inline with what is python standard. `Flake8, Black, Isort, Bandit, Docstrings Check`
+  Tagged releases get built a github pages build automatically.
+* Pre-commit hooks inline with what is python standard. `Flake8, Black, Isort, Bandit, Docstrings Check` as
+  well as pre-commit hooks for code quality and git commit message quality.
 * bump2version_: Pre-configured version bumping with a single command
 * Auto-release to PyPI_ when you push a new tag to master (optional)
 * Command line interface using Click (optional)
+* Uses `pyenv` to auto use the most recent stable python version and `pyenv virtualenv` to keep dependencies
+  isolated. (Will install missing version if missing)
 
 .. _Cookiecutter: https://github.com/cookiecutter/cookiecutter
 
