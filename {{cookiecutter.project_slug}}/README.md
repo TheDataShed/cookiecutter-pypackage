@@ -52,10 +52,11 @@ for the repo, and setting the branch to build from as the root directory of `gh-
 
 ## Getting started
 
-Activate your virtualenv:
+When changing directory into your project, if you have setup pyenv virtualenv correctly
+in your zshrc, fish, bashrc file, then your virtual environment should automatically
+load.
 
 ```bash
-source venv/bin/activate
 # Run your tests
 pytest
 # Run on multple versions

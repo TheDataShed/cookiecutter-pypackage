@@ -5,6 +5,9 @@ import sys
 from pathlib import Path
 
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
+p = subprocess.check_output(["pyenv", "root"]).decode("utf-8").strip()
+PYENV_VENV_ROOT = Path(p) / "versions" / "{{ cookiecutter.project_slug }}"
+PYENV_PYTHON = PYENV_VENV_ROOT / "bin" / "python"
 
 
 def execute(*args, supress_exception=False, cwd=None):
@@ -32,17 +35,16 @@ def remove_file(filepath):
 
 
 def install_pre_commit_hooks():
-    execute(sys.executable, "-m", "pip", "install", "pre-commit")
+    execute(f"{PYENV_PYTHON}", "-m", "pip", "install", "pre-commit", "pip", "--upgrade")
     execute("pre-commit", "install")
-    execute("pre-commit",  "install", "--hook-type", "commit-msg")
-
+    execute("pre-commit", "install", "--hook-type", "commit-msg")
 
 
 if __name__ == "__main__":
 
-    if '{{ cookiecutter.create_author_file }}' != 'y':
-        remove_file('AUTHORS.md')
-        remove_file('docs/authors.md')
+    if "{{ cookiecutter.create_author_file }}" != "y":
+        remove_file("AUTHORS.md")
+        remove_file("docs/authors.md")
 
     if "no" in "{{ cookiecutter.command_line_interface|lower }}":
         cli_file = os.path.join("{{ cookiecutter.project_slug }}", "cli.py")
@@ -55,22 +57,28 @@ if __name__ == "__main__":
     subprocess.call(["git", "init"])
     subprocess.call(["git", "branch", "-m", "main"])
 
-    VENV_DIR = Path("venv")
+    # Create the virtualenv
+    if not PYENV_PYTHON.exists():
+        subprocess.call(
+            [
+                "pyenv",
+                "virtualenv",
+                "{{ cookiecutter.python_version }}",
+                "{{ cookiecutter.project_slug }}",
+            ]
+        )
 
-    if sys.platform == "win32":
-        PYTHON_VENV = VENV_DIR / "Scripts" / "python.exe"
-    else:
-        PYTHON_VENV = VENV_DIR / "bin" / "python"
+    with open(".python-version", "w") as f_out:
+        f_out.write("{{ cookiecutter.project_slug }}")
 
-    subprocess.call(["python", "-m", "venv", "venv"])
     subprocess.call(
         [
-            f"{PYTHON_VENV}",
+            f"{PYENV_PYTHON}",
             "-m",
             "pip",
             "install",
             "-e",
-            '.[dev,docs,test]',
+            ".[dev,docs,test]",
             "--upgrade",
         ]
     )

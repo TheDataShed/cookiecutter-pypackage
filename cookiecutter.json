@@ -2,6 +2,10 @@
   "full_name": "",
   "email": "",
   "github_username": "",
+  "python_version": [
+    "3.9.10",
+    "3.10.2"
+  ],
   "project_name": "Python Boilerplate",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
   "project_short_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
@@ -11,9 +15,29 @@
   "use_black": "y",
   "use_pypi_deployment_with_travis": "n",
   "add_pyup_badge": "n",
-  "docstrings_style": ["google", "numpy", "rst"],
-  "command_line_interface": ["Click", "Argparse", "No command-line interface"],
+  "docstrings_style": [
+    "sphinx",
+    "google"
+  ],
+  "command_line_interface": [
+    "Click",
+    "Argparse",
+    "No command-line interface"
+  ],
   "create_author_file": "y",
-  "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"],
-  "_copy_without_render": ["docs/history.md", "docs/contributing.md", "docs/authors.md", "docs/index.md", ".github/workflows/*.yml"]
+  "open_source_license": [
+    "MIT license",
+    "BSD license",
+    "ISC license",
+    "Apache Software License 2.0",
+    "GNU General Public License v3",
+    "Not open source"
+  ],
+  "_copy_without_render": [
+    "docs/history.md",
+    "docs/contributing.md",
+    "docs/authors.md",
+    "docs/index.md",
+    ".github/workflows/*.yml"
+  ]
 }
