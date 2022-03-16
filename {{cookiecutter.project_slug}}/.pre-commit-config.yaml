@@ -7,9 +7,9 @@ repos:
       rev: v1.1.9
       hooks:
           - id: forbid-tabs
-            exclude: "setup.cfg"
+            exclude: "(setup.cfg|.git/)"
           - id: remove-tabs
-            exclude: "setup.cfg"
+            exclude: "(setup.cfg|.git/)"
     - repo: https://github.com/pre-commit/pre-commit-hooks
       rev: v3.2.0
       hooks:
