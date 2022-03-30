@@ -1,3 +1,10 @@
 [build-system]
 requires = ["setuptools >= 40.9.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.commitizen]
+version = "{{ cookiecutter.version }}"
+version_files = [
+    "{{ cookiecutter.project_slug }}/__version__.py",
+    "setup.cfg",
+]

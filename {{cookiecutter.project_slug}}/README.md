@@ -18,7 +18,6 @@
     <img src="https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions/workflows/main.yml/badge.svg?branch=release" alt="CI Status">
 </a>
 
-
 {% if cookiecutter.add_pyup_badge == 'y' %}
 <a href="https://pyup.io/repos/github/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/">
 <img src="https://pyup.io/repos/github/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/shield.svg" alt="Updates">
@@ -39,16 +38,16 @@
 {{ cookiecutter.project_short_description }}
 
 {%- if is_open_source %}
+
 -   Free software: {{ cookiecutter.open_source_license }}
-{%- endif %}
+    {%- endif %}
 
 ## Documentation
 
 Is generated using `mkdocs` and will update on release as long as the pages option is turned on
 for the repo, and setting the branch to build from as the root directory of `gh-pages`
 
-- [Documentation](https://{{ cookiecutter.github_username }}.github.io/{{ cookiecutter.project_slug }})
-
+-   [Documentation](https://{{ cookiecutter.github_username }}.github.io/{{ cookiecutter.project_slug }})
 
 ## Getting started
 
@@ -61,23 +60,23 @@ load.
 pytest
 # Run on multple versions
 tox
-# See other commands in the make file like building docs etc...
+# See other commands in the make file like building docs etc…
 ```
 
 ### Bumping versions:
 
+We use [commitizen](https://commitizen-tools.github.io/commitizen/bump/) to bump versions
+
 ```bash
 # On main
-bump2version <patch | minor | major>
+cz bump  # --increment {MAJOR,MINOR,PATCH} --changelog
 git push
 git push --tags
 ```
 
-
-
 ## Features
 
--   TODO
+
 
 ## Credits
 

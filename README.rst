@@ -30,7 +30,7 @@ Features
   Tagged releases get built a github pages build automatically.
 * Pre-commit hooks inline with what is python standard. `Flake8, Black, Isort, Bandit, Docstrings Check` as
   well as pre-commit hooks for code quality and git commit message quality.
-* bump2version_: Pre-configured version bumping with a single command
+* commitzen: Pre-configured version bumping with a single command
 * Auto-release to PyPI_ when you push a new tag to master (optional)
 * Command line interface using Click (optional)
 * Uses `pyenv` to auto use the most recent stable python version and `pyenv virtualenv` to keep dependencies
@@ -56,10 +56,22 @@ Windows:
 Quickstart
 ----------
 
+This cookiecutter makes use of the following packages
+that you need to have installed and configred for a seamless
+installation:
+
+1. [pyenv](https://github.com/pyenv/pyenv)
+2. [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv)
+
+Once configured you should install `cookiecutter` and `pre-commit`
+
+
+
+
 Install the latest Cookiecutter if you haven't installed it yet (this requires
 Cookiecutter 1.4.0 or higher)::
 
-    pip install -U cookiecutter
+    pip install -U cookiecutter pre-commit
 
 Generate a Python package project::
 
