@@ -3,8 +3,8 @@
   "email": "",
   "github_username": "",
   "python_version": [
-    "3.9.10",
-    "3.10.2"
+    "3.9.12",
+    "3.10.4"
   ],
   "project_name": "Python Boilerplate",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",

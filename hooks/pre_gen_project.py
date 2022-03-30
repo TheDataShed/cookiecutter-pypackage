@@ -1,6 +1,8 @@
+import os
 import re
 import subprocess
 import sys
+from pathlib import Path
 from shutil import which
 
 
@@ -36,6 +38,13 @@ def check_correct_python_version_available(version="{{ cookiecutter.python_versi
             break
     else:
         print(f"Missing python version: {version}")
+        curdir = Path.cwd()
+        pyenv_root = os.getenv("PYENV_ROOT")
+        if pyenv_root:
+            pyenv_dir = Path(pyenv_root)
+            os.chdir(pyenv_dir)
+            subprocess.call("git pull".split())
+            os.chdir(curdir)
         subprocess.call(f"pyenv install {version}".split())
 
 

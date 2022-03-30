@@ -90,6 +90,8 @@ if __name__ == "__main__":
     subprocess.call(["git", "add", "."])
     # subprocess.call([f"{PYTHON_VENV}", "-m", "pre_commit"])
     subprocess.call(["pre-commit"])
+    subprocess.call(["git", "commit", "-m", "feat: Project setup complete"])
+    subprocess.call(["git", "tag", "-a", "v0.0.1", "-m", "feat: Project setup complete"])
     print(
         """
 

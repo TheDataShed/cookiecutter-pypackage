@@ -66,6 +66,7 @@ tox
 ### Bumping versions:
 
 We use [commitizen](https://commitizen-tools.github.io/commitizen/bump/) to bump versions
+The project starts on `v0.0.1` and can be bumped using the following:
 
 ```bash
 # On main

@@ -4,7 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [tool.commitizen]
 version = "{{ cookiecutter.version }}"
+tag_format = "v$major.$minor.$patch$prerelease"
 version_files = [
-    "{{ cookiecutter.project_slug }}/__version__.py",
+    "{{ cookiecutter.project_slug }}/__init__.py",
     "setup.cfg",
 ]
