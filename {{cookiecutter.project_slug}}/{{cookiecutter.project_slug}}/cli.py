@@ -13,11 +13,20 @@ def main(*args):
     """
     Console script for {{cookiecutter.project_slug}}.
 
+    {%- if cookiecutter.docstrings_style == 'sphinx' %}
     :param args: A list of args to pass.
     :type args: Optional[list]
 
     :return: A status message
     :rtype: int
+    {%- else %}
+    Args:
+        args (Optional[list]): A list of args to pass.
+
+    Returns:
+        int: A status message.
+
+    {%- endif %}
     """
     len(args)
     click.echo("Replace this message by putting your code into "

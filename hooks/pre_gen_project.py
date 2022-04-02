@@ -45,7 +45,15 @@ def check_correct_python_version_available(version="{{ cookiecutter.python_versi
             os.chdir(pyenv_dir)
             subprocess.call("git pull".split())
             os.chdir(curdir)
-        subprocess.call(f"pyenv install {version}".split())
+            subprocess.call(f"pyenv install {version}".split())
+
+            # Install/upgrade dependencies if missing
+            pyenv_ver_pip = pyenv_dir / "versions" / version / "bin" / "pip"
+            subprocess.call(f"{pyenv_ver_pip} install --upgrade pre-commit pip".split())
+
+        else:
+            print("Can't find PYENV_ROOT, please make sure it's set up")
+            exit()
 
 
 if __name__ == "__main__":
